@@ -17,8 +17,6 @@ class PlacesController < ApplicationController
     if @current_user
       @place = Place.new
       @place["name"] = params["place"]["name"]
-      @place.uploaded_image.attach(params["post"]["uploaded_image"])
-      @place["user_id"] = @current_user["id"]
       @place.save
     else
       flash["notice"] = "Login first."
